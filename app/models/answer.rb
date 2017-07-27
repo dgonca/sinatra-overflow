@@ -4,5 +4,6 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable
+  has_one :question_best, foreign_key: :best_answer_id, :class_name => "Question"
 
 end
