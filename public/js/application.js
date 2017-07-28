@@ -39,5 +39,17 @@ $(document).ready(function() {
     event.preventDefault();
     $cool = $(".hidden_form2")
     $(this).parent().parent().next().show()
+  });
+
+  $('.commentsend').on("click", function(event) {
+    event.preventDefault();
+    var comment = $(this).parent().children().first().val()
+    $.ajax({
+      method: "POST",
+      url: "/answers/" + "1" + "/comments",
+      data: { content: comment }
+    }).done(function(response){
+      $(".hidden_form2").hide()
+    })
   })
 });
