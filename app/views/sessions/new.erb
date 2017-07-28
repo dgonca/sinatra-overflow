@@ -1,0 +1,13 @@
+<h1>Log in for the good Broks</h1>
+
+<% if @errors %>
+  <%= erb :'/_errors', layout: false %>
+<% end %>
+
+<form action="/sessions" method="post">
+  <input type="text" name="email" placeholder="you@example.com"/>
+  <input type="password" name="password" placeholder="*******"/>
+  <input type="submit" value="Broc in"/>
+</form>
+
+<p>Don't have an account? Sign up now and <a href='/users/new'>Broc' on up!</a></p>
