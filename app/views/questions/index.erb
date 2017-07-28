@@ -1,1 +1,7 @@
-<!-- page for all questions -->
+<h1>Brokoli Overflow Questions</h1>
+
+<div class="list-container">
+    <% @questions.each do |q| %>
+      <%= erb :'questions/_question_title', layout: false, locals: { question: q } %>
+    <% end %>
+</div>
