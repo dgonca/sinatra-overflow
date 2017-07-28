@@ -8,4 +8,8 @@ helpers do
     User.find_by(id: session[:user_id])
   end
 
+  def time_since_creation(method)
+    ((Time.now - method.created_at) / 3600).round
+  end
+
 end

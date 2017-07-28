@@ -1,4 +1,5 @@
 get '/questions' do
+  "What?"
   # show all questions
   @questions = Question.all
   erb :'questions/index'
@@ -26,5 +27,3 @@ post '/questions' do
     erb :'/questions/new'
   end
 end
-
-

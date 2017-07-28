@@ -1,8 +1,28 @@
-<div class="question-lg" id="question-<%= @question.id %>">
+<div class="question-lg" id="question-<%= @question.id %>" cool="<%= @question.id %>">
   <h1><%= @question.title %></h1>
   <p class="q-content"><%= @question.content %></p>
+  <p><a class="a-button" id="dropbox" href="/answer">I know the answer!</a></p>
   <p class="q-data">
     <span class="author"><a href="/users."><%= @question.author.username %></a></span> <br>
     <span class="timestamp"><%= @question.time_since_creation %></span>
   </p>
+  <div class="hidden_form">
+    <form id="submitanswer" method="POST" action="/questions/1/answers">
+    <textarea id="theanswer" name="content" placeholder="Please write your answer here." rows="20" cols="140">
+    </textarea>
+    <input id="sendbutton" type="submit" value="Post your answer">
+    </form>
+  </div>
+  <div class="answer-block">
+    <h3>Answers:</h3>
+    <br>
+    <% if @question.answers.length >= 1 %>
+
+    <% @question.answers.each do |answer| %>
+        <% @answer = answer %>
+    <%= erb :'answers/_show', layout: false%>
+    <% end %>
+
+    <% end %>
+  </div>
 </div>
