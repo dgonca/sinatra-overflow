@@ -14,7 +14,7 @@ get '/questions/new' do
 end
 
 get '/questions/:id' do
-  # display page for individual question
+  @question = Question.find_by(id: params[:id])
   erb :'questions/show'
 end
 
