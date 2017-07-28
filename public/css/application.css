@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+/*font-family: 'Zilla Slab', serif; USERS
+font-family: 'Crete Round', serif; BODY
+font-family: 'Ultra', serif; HEADER*/
+
 body {
   /*background-color: #E8E8E8;*/
   background-image: url("../images/the_brok.png");
@@ -41,6 +45,8 @@ header {
   width: 40%;
   color: #CFB63D;
   text-align: left;
+  font-family: 'Ultra', serif;
+  letter-spacing: 1px;
 }
 
 #site-title a{
@@ -69,6 +75,7 @@ nav ul {
 .nav-item a {
   text-decoration: none;
   color: #F6BB3A;
+  font-family: 'Zilla Slab'
 }
 
 .nav-item a:visited {
