@@ -1,0 +1,28 @@
+.a-button {
+  margin-top: 8px;
+  width: 15%;
+  margin-right: 5px;
+  background-color: #F6BB3A;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  color: black;
+  padding: 1%;
+}
+
+.a-content {
+  float: clear;
+}
+
+.answer-block {
+  margin-top: 8px;
+  width: 80%;
+  margin-left: 11px;
+  background-color: #F6BB3A;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  color: black;
+  padding: 1%;
+  text-align: left;
+}

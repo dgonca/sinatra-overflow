@@ -1,4 +1,14 @@
-<span>
+<p class="a-content" ans-id="<%@answer.id %>">
   <%= @answer.content %><br>
   score: <%= @answer.score %> | answered by: <%= @answer.author.name %> |<span class="timestamp"> <%= @answer.time_since_creation %> </span>
-</span>
+  <span> | <a class="comment-tab" href="/">add a comment</a> </span>
+
+    <div class="hidden_form2">
+    <form id="submitanswer" method="POST" action="/questions/1/answers">
+    <textarea id="theanswer" name="content" placeholder="Please write your comment here." rows="5" cols="80">
+    </textarea>
+    <br>
+    <input id="sendbutton" type="submit" value="add comment">
+    </form>
+  </div>
+</p>

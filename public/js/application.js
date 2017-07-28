@@ -10,7 +10,7 @@ $(document).ready(function() {
       location.reload(true);
     })
   })
-
+  $(".hidden_form2").hide()
   var button = $("#sendbutton")
   var content = $("#submitanswer")
   var link  = $("#dropbox")
@@ -22,14 +22,22 @@ $(document).ready(function() {
   })
   button.on("click", function(event) {
     event.preventDefault();
+    var $thisId = $(this).closest(".question-lg").attr("cool");
+
     $.ajax( {
       method: "POST",
-      url: "/questions/1/answers", //get correct id
-      data: { content: $("#theanswer").val()} //capture correct input
+      url: "/questions/" + $thisId + "/answers",
+      data: { content: $("#theanswer").val()}
     }).done(function(response) {
       content.hide();
 
-      $(response).appendTo($("#dropbox"))
+      $(response).appendTo($(".question-lg"))
     })
   });
+
+  $('.comment-tab').on("click", function(event) {
+    event.preventDefault();
+    $cool = $(".hidden_form2")
+    $(this).parent().parent().next().show()
+  })
 });
