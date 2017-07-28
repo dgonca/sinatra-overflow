@@ -4,7 +4,12 @@
 }
 
 body {
-  background-color: #E8E8E8;
+  /*background-color: #E8E8E8;*/
+  background-image: url("../images/the_brok.png");
+  /*background-repeat: no-repeat;*/
+  background-position: left top;
+  background-attachment: fixed;
+
 }
 
 .header-wrap {
@@ -80,7 +85,13 @@ nav ul {
   display: block;
   width: 80%;
   background-color: #5C5C5C;
-  height: 100%;
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 100vh;
+  overflow: auto;
+  z-index: -1;
 }
 
 #site-title,
@@ -91,8 +102,8 @@ nav ul {
 
 .main-container h1{
   margin: 0;
-  padding-top: 100px;
   text-align: center;
+  padding-top: 20px;
   color: #E8E8E8;
 }
 
@@ -159,7 +170,7 @@ footer {
   margin: 0 auto;
   margin-top: 50px;
   height: 100%;
-  padding-bottom: 50px;
+  padding-bottom: 500px;
 }
 
 .question-list a {
@@ -182,7 +193,8 @@ article p span.score:after {
   content: " points |";
 }
 
-article p span.author:before {
+article p span.author:before,
+.question-lg p span.author:before {
   content: " by ";
 }
 
@@ -190,7 +202,8 @@ article p span.author:after {
   content: " | ";
 }
 
-article p span.timestamp:after {
+article p span.timestamp:after,
+.question-lg p span.timestamp:after {
   content: ' hours ago';
 }
 
@@ -201,6 +214,41 @@ article p span.answer-count:before {
 article p span.answer-count:after {
   content: ' answers  ';
 }
+
+.question-lg p {
+  padding: 10px;
+}
+
+.q-data {
+  width: 15%;
+  margin-right: 5px;
+  background-color: #F6BB3A;
+  text-align: center;
+  display: inline-block;
+  float: right;
+}
+
+.q-content{
+  background-color: #efe792;
+  margin: 5px;
+}
+
+.q-data a{
+  color: black;
+  text-decoration: none;
+}
+
+.q-data a:visited{
+  color: black;
+}
+
+.q-data a:hover {
+  font-style: italic;
+}
+/*
+.question-lg {
+  border-bottom: 2px solid #1D5719;
+}*/
 
 
 

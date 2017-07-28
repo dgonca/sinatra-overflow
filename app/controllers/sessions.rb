@@ -17,6 +17,9 @@ end
 
 delete '/sessions' do
   # logging the user out
-  session.delete(:user_id)
-  redirect '/'
+  if request.xhr?
+    session.delete(:user_id)
+    status 204
+  end
+  # redirect '/'
 end
