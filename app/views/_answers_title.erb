@@ -1,0 +1,9 @@
+<article id="<%= answer.id %>" class="question-list answer-list">
+  <h2><a href="/questions/<%= answer.question_id %>"><%= answer.question.title %></a></h2>
+  <p>
+    <span class="score"><%= answer.score %></span>
+    <span class="author"><a href="/"><%= answer.author.username %></a></span>
+    <span class="timestamp"><%= answer.time_since_creation %></span>
+    <span class="comment-count"><%= answer.comments.count %></span>
+  </p>
+</article>

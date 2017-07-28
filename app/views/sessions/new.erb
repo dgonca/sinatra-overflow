@@ -1,13 +1,17 @@
-<h1>Log in for the good Broks</h1>
+<h1>Log in for the good Broccs</h1>
+<div class="sm-container">
+  <% if @errors %>
+    <%= erb :'/_errors', layout: false %>
+  <% end %>
 
-<% if @errors %>
-  <%= erb :'/_errors', layout: false %>
-<% end %>
+  <form action="/sessions" method="post">
+    <input type="text" name="email" placeholder="you@example.com"/>
+    <input type="password" name="password" placeholder="password"/>
+    <input type="submit" value="Brocc In"/>
+  </form>
 
-<form action="/sessions" method="post">
-  <input type="text" name="email" placeholder="you@example.com"/>
-  <input type="password" name="password" placeholder="*******"/>
-  <input type="submit" value="Broc in"/>
-</form>
-
-<p>Don't have an account? Sign up now and <a href='/users/new'>Broc' on up!</a></p>
+  <p>Don't have an account? Sign up now and <a href='/users/new'>Brocc' on up!</a></p>
+</div>
+<div class="welcome-gif">
+  <img src="/images/DRAM_and_yachty.gif" width="500px" height="auto">
+</div>

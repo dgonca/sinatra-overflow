@@ -1,9 +1,16 @@
 <article id="<%= question.id %>" class="question-list">
-  <h2><a href="/questions/<%= question.id %>"><%= question.title %></a></h2>
-  <p>
-    <span class="score"><%= question.score %></span>
-    <span class="author"><a href="/"><%= question.author.username %></a></span>
-    <span class="timestamp"><%= question.time_since_creation %></span>
-    <span class="answer-count"><%= question.answers.count %></span>
-  </p>
+  <div class="vote-buttons">
+    <button class="up-vote votes">&#9651</button>
+    <br>
+    <button class="down-vote votes">&#9661</button>
+  </div>
+  <div class="article-info">
+    <h2><a href="/questions/<%= question.id %>"><%= question.title %></a></h2>
+    <p>
+      <span class="score"><%= question.score %></span>
+      <span class="author"><a href="/"><%= question.author.username %></a></span>
+      <span class="timestamp"><%= question.time_since_creation %></span>
+      <span class="answer-count"><%= question.answers.count %></span>
+    </p>
+  </div>
 </article>

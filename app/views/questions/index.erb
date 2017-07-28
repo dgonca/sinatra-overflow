@@ -1,5 +1,5 @@
-<h1>Brokoli Overflow Questions</h1>
-<h4 id="new-q-button"><a href="/questions/new">Ask a Question</a></h4>
+<h1 class="main-page-header">Brokoli Overflow Questions</h1>
+<h4 class="new-q-button"><a href="/questions/new">Ask a Question</a></h4>
 <div class="list-container">
     <% @questions.each do |q| %>
       <%= erb :'questions/_question_title', layout: false, locals: { question: q } %>
