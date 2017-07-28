@@ -18,6 +18,39 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <div class="header-wrap">
+    <header>
+      <h1 id="site-title">Broccoli Overflow</h1>
+      <nav class="site-nav">
+        <ul>
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item"><a href="/">Questions</a></li>
+          <li class="nav-item"><a href="/">Users</a></li>
+          <li class="nav-item"><a href="/sessions/new">Log In</a></li>
+          <li class="nav-item"><a href="/users/new">Register</a></li>
+          <li class="nav-item"><a href="/">Log Out</a></li>
+          <li class="nav-item"><a href="/">Profile (username)</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <div class="main-container">
+    <%= yield %>
+  </div>
+
+  <div class="site-footer">
+    <footer>
+      <div class="left-ft">
+        <ul>
+        <li><a href="/">About</a></li>
+        </ul>
+      </div>
+      <div class="right-ft">
+        <ul>
+        <li><a href="http://devbootcamp.com">Dev Bootcamp</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
