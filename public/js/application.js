@@ -2,6 +2,11 @@ $(document).ready(function() {
   var button = $("#sendbutton")
   var content = $("#submitanswer")
   var link  = $("#dropbox")
+  content.hide();
+  link.on("click", function(event){
+    event.preventDefault();
+    content.show();
+  })
   button.on("click", function(event) {
     event.preventDefault();
     $.ajax( {
