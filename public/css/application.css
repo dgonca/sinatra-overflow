@@ -38,6 +38,19 @@ header {
   text-align: left;
 }
 
+#site-title a{
+  color: #CFB63D;
+  text-decoration: none;
+}
+
+#site-title a:visited{
+  color: #CFB63D;
+}
+
+#site-title a:hover{
+  font-style: italic;
+}
+
 nav ul {
   list-style-type: none;
   text-align: right;
@@ -67,7 +80,7 @@ nav ul {
   display: block;
   width: 80%;
   background-color: #5C5C5C;
-  height: 100vh;
+  height: 100%;
 }
 
 #site-title,
@@ -84,10 +97,12 @@ nav ul {
 }
 
 .site-footer{
-  height: 80px;
+  height: 30px;
   background-color: #1D5719;
   color: white;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 footer {
@@ -139,6 +154,53 @@ footer {
   color: black;
 }
 
+.list-container{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+.question-list a {
+  color: #F6BB3A;
+  text-decoration: none;
+}
+
+.question-list a:visited {
+  color: #F6BB3A;
+}
+
+.question-list a:hover {
+  font-style: italic;
+}
+article p span{
+  color: white;
+}
+
+article p span.score:after {
+  content: " points |";
+}
+
+article p span.author:before {
+  content: " by ";
+}
+
+article p span.author:after {
+  content: " | ";
+}
+
+article p span.timestamp:after {
+  content: ' hours ago';
+}
+
+article p span.answer-count:before {
+  content: ' | ';
+}
+
+article p span.answer-count:after {
+  content: ' answers  ';
+}
 
 
 

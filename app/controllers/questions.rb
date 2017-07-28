@@ -1,34 +1,29 @@
 get '/questions' do
   "What?"
   # show all questions
-  # on the board we wrote this route as "/questions/index"
-  # erb:'questions/show'
+  @questions = Question.all
+  erb :'questions/index'
 end
 
 get '/questions/new' do
-  # page with form to create new question
-end
-
-post '/questions' do
-  # with the data that is passed in, create a new instance of question
-  # should it redirect to '/questions/:id' or to '/questions' ?
-end
-
-get '/questions/:id' do
-  "Hi"# display page for individual question
-end
-
-post '/questions/:id/answers' do
-  if request.xhr? && logged_in?
-    @answer = Answer.new(content: params[:content], question_id: params[:id], author_id: current_user.id)
-    if @answer.save
-      erb :"/questions/show", layout: false
-    else
-      errors = @answer.errors.full_messages
-    end
+  if logged_in?
+    erb :'questions/new'
   else
-    "something is fucked up"
+    redirect "/sessions/new"
   end
 end
 
+get '/questions/:id' do
+  # display page for individual question
+  erb :'questions/show'
+end
 
+post '/questions' do
+  new_question = current_user.questions.create(params[:question])
+  if new_question.persisted?
+    redirect "/questions/#{new_question.id}"
+  else
+    @errors = new_question.errors.full_messages
+    erb :'/questions/new'
+  end
+end
