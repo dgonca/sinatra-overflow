@@ -38,6 +38,19 @@ header {
   text-align: left;
 }
 
+#site-title a{
+  color: #CFB63D;
+  text-decoration: none;
+}
+
+#site-title a:visited{
+  color: #CFB63D;
+}
+
+#site-title a:hover{
+  font-style: italic;
+}
+
 nav ul {
   list-style-type: none;
   text-align: right;

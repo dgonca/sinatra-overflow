@@ -1,11 +1,12 @@
 get '/questions' do
   # show all questions
-  # on the board we wrote this route as "/questions/index"
-  # erb:'questions/show'
+
+  erb :'questions/index'
 end
 
 get '/questions/new' do
   # page with form to create new question
+  erb :'questions/new'
 end
 
 post '/questions' do
