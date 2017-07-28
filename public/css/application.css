@@ -3,7 +3,7 @@
   padding: 0;
 }
 
- body, a:hover {cursor: url(http://cur.cursors-4u.net/food/foo-2/foo102.cur), progress !important;}
+ body, a:hover, button:hover {cursor: url(http://cur.cursors-4u.net/food/foo-2/foo102.cur), progress !important;}
 /*font-family: 'Zilla Slab', serif; USERS
 font-family: 'Crete Round', serif; BODY
 font-family: 'Ultra', serif; HEADER*/
@@ -15,7 +15,13 @@ body {
   background-position: left top;
   background-attachment: fixed;
   font-family: 'Crete Round', serif;
+  min-height: 100%;
 }
+
+html{
+  height: 100%;
+}
+
 
 a {
   font-family: 'Zilla Slab', serif;
@@ -28,6 +34,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 
 header {
@@ -98,13 +105,14 @@ nav ul {
   width: 80%;
   background-color: #5C5C5C;
   opacity: .9;
-  position: fixed;
-  top: 60px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  height: 100vh;
-  overflow: auto;
+  padding: 80px 0;
+  /*position: fixed;*/
+  /*top: 60px;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%, 0);*/
+  min-height: 100%;
   z-index: -1;
+  /*margin-bottom: 50px;*/
 }
 
 #site-title,
@@ -206,6 +214,7 @@ footer {
 
 .sm-container {
   margin: 0 auto;
+  margin-top: 30px;
   /*margin-top: 50px;*/
   width: 500px;
   background-color: #E8E8E8;
@@ -221,8 +230,31 @@ footer {
   margin: 0 auto;
   margin-top: 50px;
   height: 100%;
-  padding-bottom: 500px;
+  padding-bottom: 50px;
 }
+
+
+
+.profile-left{
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+  text-align: center;
+}
+
+.profile-right{
+  padding-left: 10px;
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+  text-align: center;
+}
+
+.question-list {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
 
 .question-list a {
   color: #F6BB3A;
@@ -301,12 +333,36 @@ article p span.answer-count:after {
   margin: 0 auto;
   padding: 30px;
   width: 500px;
-  /*height: auto;*/
 }
-/*
-.question-lg {
-  border-bottom: 2px solid #1D5719;
-}*/
+
+.vote-buttons{
+  display: inline-block;
+  vertical-align: middle;
+  width: 5%;
+  padding: 5px;
+}
+
+.votes{
+  background: transparent;
+  box-shadow: none;
+  border-style: none;
+}
+
+.up-vote{
+  color: green;
+}
+
+.down-vote{
+  color: red;
+}
+
+.article-info{
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+}
+
+
 
 
 
