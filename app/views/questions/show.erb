@@ -1,1 +1,8 @@
-<!-- file to show an individual question and its comments, answers, etc -->
+<div class="question-lg" id="<% question.id %>">
+  <h1><%= @question.title %></h1>
+  <p class="q-content"><%= @question.content %></p>
+  <p class="q-data">
+    <span class="author"><a href="/users."><%= @question.author.username %></a></span> <br>
+    <span class="timestamp"><%= @question.time_since_creation %></span>
+  </p>
+</div>

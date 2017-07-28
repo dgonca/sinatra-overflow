@@ -4,4 +4,16 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $(".logout").on("click", function(event){
+    event.preventDefault();
+
+    $.ajax({
+      method: "DELETE",
+      url: "/sessions"
+    })
+    .done(function(){
+      location.reload(true);
+    })
+  })
+
 });
