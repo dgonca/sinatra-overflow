@@ -6,6 +6,8 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :voteable
   belongs_to :best_answer, :class_name => "Answer"
 
+  validates :author, :title, :content, presence: true
+
   def score
     votes.sum(:value)
   end
