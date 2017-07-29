@@ -250,22 +250,26 @@ footer {
   text-align: center;
 }
 
-.question-list {
+.question-list,
+.answer-list {
   padding-bottom: 5px;
   border-bottom: 1px solid #E8E8E8;
 }
 
 
-.question-list a {
+.question-list a,
+ .answer-list a {
   color: #F6BB3A;
   text-decoration: none;
 }
 
-.question-list a:visited {
+.question-list a:visited,
+.answer-list a:visited {
   color: #F6BB3A;
 }
 
-.question-list a:hover {
+.question-list a:hover,
+.answer-list a:hover {
   font-style: italic;
 }
 article p span{
@@ -290,7 +294,8 @@ article p span.timestamp:after,
   content: ' hours ago';
 }
 
-article p span.answer-count:before {
+article p span.answer-count:before,
+.article-info p span.comment-count:before {
   content: ' | ';
 }
 
@@ -340,13 +345,28 @@ article p span.answer-count:after {
   vertical-align: middle;
   width: 5%;
   padding: 5px;
+  margin: 0 15px;
+  background-color: #e8e8e8;
+  text-align: center;
+}
+.vote-buttons p{
+  display: block;
+  vertical-align: middle;
+  font-family: 'Zilla Slab', serif;
 }
 
 .votes{
   background: transparent;
   box-shadow: none;
   border-style: none;
+  font-size: 1.5em;
 }
+
+.a-votes .vote-buttons .votes{
+  font-size: 1em;
+}
+
+
 
 .up-vote{
   color: green;
@@ -354,13 +374,15 @@ article p span.answer-count:after {
 
 .down-vote{
   color: red;
+  /*margin-right: 3px;*/
 }
 
-.article-info{
+.article-info, .q-title{
   display: inline-block;
   vertical-align: middle;
   width: 80%;
 }
+
 
 
 

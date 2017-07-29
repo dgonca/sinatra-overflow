@@ -1,5 +1,6 @@
-<div class="question-lg" id="question-<%= @question.id %>" cool="<%= @question.id %>">
-  <h1><%= @question.title %></h1>
+<div class="question-lg voteable-container" type="questions" cool="<%= @question.id %>" id="<%= @question.id %>">
+  <%= erb :'votes/_vote_buttons', layout: false, locals: { voteable: @question } %>
+  <h1 class="q-title"><%= @question.title %></h1>
   <p class="q-content"><%= @question.content %></p>
   <p><a class="a-button" id="dropbox" href="/answer">I know the answer!</a></p>
   <p class="q-data">
