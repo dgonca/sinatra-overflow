@@ -17,19 +17,31 @@ $(document).ready(function() {
     var voteableType = $(this).closest('.voteable-container').attr("type");
     var voteableId = $(".down-vote").closest('.voteable-container').attr("id");
     var voteUrl = "/" + voteableType + "/" + voteableId + "/votes";
-    var voteValue
+    var voteValue;
     if ($(this).hasClass('up-vote')) {
       voteValue = 1;
-    }else {
+    }else if ($(this).hasClass('down-vote')) {
       voteValue = -1;
-    }
-    $.ajax( {
+    };
+    var request = $.ajax( {
       method: "POST",
       url: voteUrl,
       data: {value: voteValue}
-    }).done(function(newScore) {
+    });
+    request.done(function(newScore) {
       $scoreToChange.text(newScore);
     })
+    request.fail(function( jqXHR, textStatus ) {
+      // console.log(textStatus);
+      // console.log(jqXHR.status);
+      if (jqXHR.status === 401){
+        $scoreToChange.closest(".shake-container").effect("shake", {distance:3});
+
+        // alert("You must be logged in to vote!");
+
+      }
+
+    });
   })
 
 
