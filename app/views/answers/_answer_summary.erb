@@ -1,0 +1,12 @@
+<article id="<%= answer.id %>" class="answer-list">
+  <div class="article-info">
+    <h2><a href="/questions/<%= answer.question.id %>"><%= answer.content %></a></h2>
+    <p>
+      <span class="score"><%= answer.score %></span>
+      <!-- TO DO: Concatenate answers -->
+      <span class="timestamp"><%= answer.time_since_creation %></span>
+      <span class="comment-count"><%= answer.comments.count %> comments</span>
+    </p>
+  </div>
+</article>
+

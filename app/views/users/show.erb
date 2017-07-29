@@ -7,17 +7,15 @@
 <div class="list-container profile-list">
   <div class="profile-left">
     <h2><%= @user.username  %>'s questions</h2>
-    <% unless @user.questions.empty? %>
       <% @user.questions.each do |q|  %>
         <%= erb :'questions/_question_title', layout: false, locals: { question: q } %>
       <% end %>
-    <% end %>
   </div>
 
   <div class="profile-right">
     <h2><%= @user.username  %>'s answers</h2>
     <% @user.answers.each do |a|  %>
-      <%= erb :'questions/_question_title', layout: false, locals: { question: a } %>
+      <%= erb :'answers/_answer_summary', layout: false, locals: { answer: a } %>
     <% end %>
   </div>
 </div>

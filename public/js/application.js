@@ -13,17 +13,22 @@ $(document).ready(function() {
 
   $(".voteable-container").on("click", ".votes", function(event){
     event.preventDefault();
-    // var scoreToChange = FIND SCORE
+    var $scoreToChange = $(this).closest('.vote-buttons').find('.voteable-score');
     var voteableType = $(this).closest('.voteable-container').attr("type");
     var voteableId = $(".down-vote").closest('.voteable-container').attr("id");
     var voteUrl = "/" + voteableType + "/" + voteableId + "/votes";
     var voteValue
+    if ($(this).hasClass('up-vote')) {
+      voteValue = 1;
+    }else {
+      voteValue = -1;
+    }
     $.ajax( {
       method: "POST",
       url: voteUrl,
-      data: {value: -1}
-    }).done(score, function() {
-
+      data: {value: voteValue}
+    }).done(function(newScore) {
+      $scoreToChange.text(newScore);
     })
   })
 

@@ -250,22 +250,26 @@ footer {
   text-align: center;
 }
 
-.question-list {
+.question-list,
+.answer-list {
   padding-bottom: 5px;
   border-bottom: 1px solid #E8E8E8;
 }
 
 
-.question-list a {
+.question-list a,
+ .answer-list a {
   color: #F6BB3A;
   text-decoration: none;
 }
 
-.question-list a:visited {
+.question-list a:visited,
+.answer-list a:visited {
   color: #F6BB3A;
 }
 
-.question-list a:hover {
+.question-list a:hover,
+.answer-list a:hover {
   font-style: italic;
 }
 article p span{
@@ -290,7 +294,8 @@ article p span.timestamp:after,
   content: ' hours ago';
 }
 
-article p span.answer-count:before {
+article p span.answer-count:before,
+.article-info p span.comment-count:before {
   content: ' | ';
 }
 
@@ -345,8 +350,9 @@ article p span.answer-count:after {
   text-align: center;
 }
 .vote-buttons p{
-  display: inline-block;
+  display: block;
   vertical-align: middle;
+  font-family: 'Zilla Slab', serif;
 }
 
 .votes{
@@ -368,7 +374,7 @@ article p span.answer-count:after {
 
 .down-vote{
   color: red;
-  margin-right: 3px;
+  /*margin-right: 3px;*/
 }
 
 .article-info, .q-title{
