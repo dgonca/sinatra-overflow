@@ -26,3 +26,10 @@
   padding: 1%;
   text-align: left;
 }
+
+.hidden_form {
+  float: left;
+  dispaly: inline-block;
+  margin-top: 30px;
+  color: red;
+}

@@ -20,36 +20,40 @@ $(document).ready(function() {
     event.preventDefault();
     content.show();
   })
+
   button.on("click", function(event) {
     event.preventDefault();
     var $thisId = $(this).closest(".question-lg").attr("cool");
-
     $.ajax( {
       method: "POST",
       url: "/questions/" + $thisId + "/answers",
       data: { content: $("#theanswer").val()}
     }).done(function(response) {
       content.hide();
-
-      $(response).appendTo($(".question-lg"))
+      $(response).appendTo($(".answer-block"))
+      $(".hidden_form2").hide()
     })
   });
 
-  $('.comment-tab').on("click", function(event) {
+  $('.answer-block').on("click", (".comment-tab"), function(event)  {
     event.preventDefault();
     $cool = $(".hidden_form2")
     $(this).parent().parent().next().show()
   });
 
-  $('.commentsend').on("click", function(event) {
+  $('.answer-block').on("click", (".commentsend"), function(event) {
     event.preventDefault();
+    var $this = $(this)
     var comment = $(this).parent().children().first().val()
+    console.log(comment)
     $.ajax({
       method: "POST",
       url: "/answers/" + "1" + "/comments",
       data: { content: comment }
     }).done(function(response){
+      console.log(response)
       $(".hidden_form2").hide()
+      $this.parent().parent().prev().append(response)
     })
-  })
+  });
 });
