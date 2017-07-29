@@ -9,7 +9,27 @@ $(document).ready(function() {
     .done(function(){
       location.reload(true);
     })
+  });
+
+  $(".voteable-container").on("click", ".votes", function(event){
+    event.preventDefault();
+    // var scoreToChange = FIND SCORE
+    var voteableType = $(this).closest('.voteable-container').attr("type");
+    var voteableId = $(".down-vote").closest('.voteable-container').attr("id");
+    var voteUrl = "/" + voteableType + "/" + voteableId + "/votes";
+    var voteValue
+    $.ajax( {
+      method: "POST",
+      url: voteUrl,
+      data: {value: -1}
+    }).done(score, function() {
+
+    })
   })
+
+
+
+
   $(".hidden_form2").hide()
   var button = $("#sendbutton")
   var content = $("#submitanswer")

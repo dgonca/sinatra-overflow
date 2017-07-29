@@ -340,13 +340,27 @@ article p span.answer-count:after {
   vertical-align: middle;
   width: 5%;
   padding: 5px;
+  margin: 0 15px;
+  background-color: #e8e8e8;
+  text-align: center;
+}
+.vote-buttons p{
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .votes{
   background: transparent;
   box-shadow: none;
   border-style: none;
+  font-size: 1.5em;
 }
+
+.a-votes .vote-buttons .votes{
+  font-size: 1em;
+}
+
+
 
 .up-vote{
   color: green;
@@ -354,13 +368,15 @@ article p span.answer-count:after {
 
 .down-vote{
   color: red;
+  margin-right: 3px;
 }
 
-.article-info{
+.article-info, .q-title{
   display: inline-block;
   vertical-align: middle;
   width: 80%;
 }
+
 
 
 
