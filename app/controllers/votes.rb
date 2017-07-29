@@ -1,7 +1,7 @@
 post "/questions/:id/votes" do
   @question = Question.find_by(id: params[:id])
   if request.xhr? && @question
-    if !logged_in?
+    if !logged_in? || Vote.already_voted?(@question, current_user.id)
       status 401
     else
       vote = @question.votes.create(user_id: current_user.id, value: params[:value].to_i)
@@ -15,5 +15,4 @@ post "/questions/:id/votes" do
 
 end
 
-# TODO: Prevent non-logged in users from voting (it throws a 500 server error)
 # TODO: Prevent a user from voting on something more than once

@@ -32,13 +32,8 @@ $(document).ready(function() {
       $scoreToChange.text(newScore);
     })
     request.fail(function( jqXHR, textStatus ) {
-      // console.log(textStatus);
-      // console.log(jqXHR.status);
       if (jqXHR.status === 401){
         $scoreToChange.closest(".shake-container").effect("shake", {distance:3});
-
-        // alert("You must be logged in to vote!");
-
       }
 
     });
