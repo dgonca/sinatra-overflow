@@ -1,7 +1,17 @@
-<p class="a-content" ans-id="<%@answer.id %>">
+<p class="a-content" ans-id="<%= @answer.id %>">
   <%= @answer.content %><br>
   score: <%= @answer.score %> | answered by: <%= @answer.author.name %> |<span class="timestamp"> <%= @answer.time_since_creation %> </span>
   <span> | <a class="comment-tab" href="/">add a comment</a> </span>
+  <br>
+    <% if @answer.comments != nil %>
+    <div class="l-comments">
+      <% @answer.comments.all.each do |comment| %>
+      <br>
+        "<%= comment.content %>" | by: <%= comment.author.name %> | <%= comment.time_since_creation %> hours ago
+      <br>
+      <% end %>
+      </div>
+    <% end %>
 
     <div class="hidden_form2">
     <form class="submitcomment" method="POST" action="/questions/1/answers">

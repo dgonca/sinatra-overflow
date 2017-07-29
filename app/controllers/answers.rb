@@ -1,4 +1,4 @@
-post '/questions/:id/answers' do
+ post '/questions/:id/answers' do
   if request.xhr? && logged_in?
     @answer = Answer.new(content: params[:content], question_id: params[:id], author_id: current_user.id)
     if @answer.save
@@ -7,6 +7,6 @@ post '/questions/:id/answers' do
       errors = @answer.errors.full_messages
     end
   else
-    "something is fucked up"
+    redirect "/sessions/new"
   end
 end
