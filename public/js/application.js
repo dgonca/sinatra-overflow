@@ -43,17 +43,21 @@ $(document).ready(function() {
 
   $('.answer-block').on("click", (".commentsend"), function(event) {
     event.preventDefault();
-    var $this = $(this)
-    var comment = $(this).parent().children().first().val()
-    var url = $this.parent().parent().prev().prev().attr("ans-id")
+    var $this = $(this);
+    var $commentTextArea = $this.parent().children(".thecomment")
+    var comment = $commentTextArea.val();
+    var url = $this.parent().parent().prev().prev().attr("ans-id");
+
     $.ajax({
       method: "POST",
       url: "/answers/" + url + "/comments",
       data: { content: comment }
     }).done(function(response){
       $(".hidden_form2").hide()
-      $this.parent().parent().prev().append(response)
-      $this.parent().children().first().val("")
+      $this.parent().parent().prev().append(response);
+      $commentTextArea.val("");
     })
   });
+
+
 });
