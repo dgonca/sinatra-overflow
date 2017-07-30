@@ -347,8 +347,13 @@ article p span.answer-count:after {
   padding: 5px;
   margin: 0 15px;
   background-color: #e8e8e8;
+}
+
+.vote-buttons .shake-container {
+  width: 2%;
   text-align: center;
 }
+
 .vote-buttons p{
   display: block;
   vertical-align: middle;
