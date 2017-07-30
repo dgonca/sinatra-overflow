@@ -14,7 +14,7 @@
     <% end %>
 
     <div class="hidden_form2">
-    <form class="submitcomment" method="POST" action="/questions/1/answers">
+    <form class="submitcomment" method="POST" action="/questions/,<%= @question.id %>/comments">
     <textarea class="thecomment" name="content" placeholder="Please write your comment here." rows="5" cols="80">
     </textarea>
     <br>

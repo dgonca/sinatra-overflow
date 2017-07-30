@@ -75,17 +75,43 @@ $(document).ready(function() {
 
   $('.answer-block').on("click", (".commentsend"), function(event) {
     event.preventDefault();
-    var $this = $(this)
-    var comment = $(this).parent().children().first().val()
-    var url = $this.parent().parent().prev().prev().attr("ans-id")
+    var $this = $(this);
+    var $commentTextArea = $this.parent().children(".thecomment")
+    var comment = $commentTextArea.val();
+    var url = $this.parent().parent().prev().prev().attr("ans-id");
+
     $.ajax({
       method: "POST",
       url: "/answers/" + url + "/comments",
       data: { content: comment }
     }).done(function(response){
       $(".hidden_form2").hide()
-      $this.parent().parent().prev().append(response)
-      $this.parent().children().first().val("")
+      $this.parent().parent().prev().append(response);
+      $commentTextArea.val("");
     })
   });
+
+  $(".q_hidden_form").hide();
+
+  $('.q-comment-tab').on("click", function(event) {
+    event.preventDefault();
+    $(".q_hidden_form").show();
+  });
+
+  $('.q-commentsend').on("click", function(event) {
+    event.preventDefault();
+    var urlId = $(".q-comment-tab").attr("q-id");
+    var qComment = $(".q-thecomment").val();
+
+    $.ajax({
+      method: "POST",
+      url: "/questions/" + urlId + "/comments",
+      data: { content: qComment }
+    }).done(function(response) {
+      $(".q_hidden_form").hide();
+      $(".l-comments").append(response);
+      $(".q-thecomment").val("");
+    });
+  });
+
 });

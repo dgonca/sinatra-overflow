@@ -6,9 +6,33 @@
   <p class="q-data">
     <span class="author"><a href="/users."><%= @question.author.username %></a></span> <br>
     <span class="timestamp"><%= @question.time_since_creation %></span>
+
+    <%# start of comments on questions %>
+    <span> <br>~ <a class="q-comment-tab" q-id="<%= @question.id %>" href="/">add a comment</a> </span>
+    <br>
+      <% if @question.comments != nil %>
+      <div class="l-comments">
+        <% @question.comments.all.each do |comment| %>
+        <br>
+          "<%= comment.content %>" | by: <%= comment.author.name %> | <%= comment.time_since_creation %> hours ago
+        <br>
+        <% end %>
+        </div>
+      <% end %>
+
+      <div class="q_hidden_form">
+      <form class="q-submitcomment" method="POST" action="/questions/<%= @question.id %>/comments">
+      <textarea class="q-thecomment" name="content" placeholder="Please write your comment here." rows="5" cols="80">
+      </textarea>
+      <br>
+      <input class="q-commentsend" type="submit" value="add comment">
+      </form>
+    </div>
   </p>
+
+  <%# start of the answers on questions %>
   <div class="hidden_form">
-    <form id="submitanswer" method="POST" action="/questions/1/answers">
+    <form id="submitanswer" method="POST" action="/questions/<%= @question.id %>/answers">
     <textarea id="theanswer" name="content" placeholder="Please write your answer here." rows="12" cols="100">
     </textarea>
     <input id="sendbutton" type="submit" value="Post your answer">
