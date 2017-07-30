@@ -59,5 +59,27 @@ $(document).ready(function() {
     })
   });
 
+  $(".q_hidden_form").hide();
+
+  $('.q-comment-tab').on("click", function(event) {
+    event.preventDefault();
+    $(".q_hidden_form").show();
+  });
+
+  $('.q-commentsend').on("click", function(event) {
+    event.preventDefault();
+    var urlId = $(".q-comment-tab").attr("q-id");
+    var qComment = $(".q-thecomment").val();
+
+    $.ajax({
+      method: "POST",
+      url: "/questions/" + urlId + "/comments",
+      data: { content: qComment }
+    }).done(function(response) {
+      $(".q_hidden_form").hide();
+      $(".l-comments").append(response);
+      $(".q-thecomment").val("");
+    });
+  });
 
 });
