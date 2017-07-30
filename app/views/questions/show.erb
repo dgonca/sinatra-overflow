@@ -5,7 +5,31 @@
   <p class="q-data">
     <span class="author"><a href="/users."><%= @question.author.username %></a></span> <br>
     <span class="timestamp"><%= @question.time_since_creation %></span>
+
+    <%# start of comments on questions %>
+    <span> | <a class="comment-tab" href="/">add a comment</a> </span>
+    <br>
+      <% if @question.comments != nil %>
+      <div class="l-comments">
+        <% @question.comments.all.each do |comment| %>
+        <br>
+          "<%= comment.content %>" | by: <%= comment.author.name %> | <%= comment.time_since_creation %> hours ago
+        <br>
+        <% end %>
+        </div>
+      <% end %>
+
+      <div class="hidden_form2">
+      <form class="submitcomment" method="POST" action="/questions/1/answers">
+      <textarea class="thecomment" name="content" placeholder="Please write your comment here." rows="5" cols="80">
+      </textarea>
+      <br>
+      <input class="commentsend" type="submit" value="add comment">
+      </form>
+    </div>
   </p>
+
+  <%# start of the answers on questions %>
   <div class="hidden_form">
     <form id="submitanswer" method="POST" action="/questions/1/answers">
     <textarea id="theanswer" name="content" placeholder="Please write your answer here." rows="12" cols="100">

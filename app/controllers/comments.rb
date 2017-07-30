@@ -1,7 +1,16 @@
 post '/questions/:id/comments' do
   # create a new comment for a given question
-
-
+  if request.xhr? && logged_in?
+    question = Question.find(params[:id])
+    @comment = question.comments.create(content: params[:content], author_id: current_user.id)
+    if @comment.save
+      erb :"/comments/_show", layout: false
+    else
+      @errors = @comment.errors.full_messages
+    end
+  else
+    redirect "/sessions/new"
+  end
 end
 
 post '/answers/:id/comments' do
@@ -12,7 +21,7 @@ post '/answers/:id/comments' do
     if @comment.save
       erb :"/comments/_show", layout: false
     else
-      errors = @comment.errors.full_messages
+      @errors = @comment.errors.full_messages
     end
   else
     redirect "/sessions/new"
