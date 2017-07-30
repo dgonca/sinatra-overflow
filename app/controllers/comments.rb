@@ -15,6 +15,6 @@ post '/answers/:id/comments' do
       errors = @comment.errors.full_messages
     end
   else
-    "something is super fucked. comment on that"
+    redirect "/sessions/new"
   end
 end

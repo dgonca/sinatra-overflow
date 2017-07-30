@@ -1,3 +1,4 @@
-<p>
-  <%= @comment.content %> - <%= @comment.author.name %> - <%= @comment.time_since_creation %>
-</p>
+<div>
+  <br>
+"<%= @comment.content %>" | by: <%= @comment.author.name %> | <%= @comment.time_since_creation %> hours ago
+</div>

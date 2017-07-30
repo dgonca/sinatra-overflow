@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :email, :hashed_password
   validates_uniqueness_of :email
-  validate :password_length
+  # validate :password_length
 
   def password
     @password ||= BCrypt::Password.new(hashed_password)
