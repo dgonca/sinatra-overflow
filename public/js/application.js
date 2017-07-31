@@ -109,7 +109,7 @@ $(document).ready(function() {
       data: { content: qComment }
     }).done(function(response) {
       $(".q_hidden_form").hide();
-      $(".l-comments").append(response);
+      $(".l-q-comments").append(response);
       $(".q-thecomment").val("");
     });
   });

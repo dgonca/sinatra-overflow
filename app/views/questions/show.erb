@@ -11,7 +11,7 @@
     <span> <br>~ <a class="q-comment-tab" q-id="<%= @question.id %>" href="/">add a comment</a> </span>
     <br>
       <% if @question.comments != nil %>
-      <div class="l-comments">
+      <div class="l-q-comments">
         <% @question.comments.all.each do |comment| %>
         <br>
           "<%= comment.content %>" | by: <%= comment.author.name %> | <%= comment.time_since_creation %> hours ago
