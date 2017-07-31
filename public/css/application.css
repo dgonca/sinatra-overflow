@@ -388,6 +388,31 @@ article p span.answer-count:after {
   width: 80%;
 }
 
+.users-list{
+  width: 50%;
+  height: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.users-list h3{
+  display: inline-block;
+  padding: 3px;
+}
+
+.users-list a{
+  color: #F6BB3A;
+  text-decoration: none;
+}
+
+.users-list a:visited{
+  color: #F6BB3A;
+}
+
+.users-list a:hover{
+  font-style: italic;
+}
+
 
 
 

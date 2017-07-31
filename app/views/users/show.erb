@@ -14,6 +14,7 @@
 
   <div class="profile-right">
     <h2><%= @user.username  %>'s answers</h2>
+    <h6>linked through the questions below</h6>
     <% @user.answers.each do |a|  %>
       <%= erb :'answers/_answer_summary', layout: false, locals: { answer: a } %>
     <% end %>
